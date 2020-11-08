@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformationModule", "TransformationModule\TransformationModule.csproj", "{52B0D671-5DBA-41DA-849B-55B56D769ABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesEditor", "RulesEditor\RulesEditor\RulesEditor.csproj", "{9393A663-7316-4A32-9389-6A5129E58D1E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{8989ED69-D4DD-4DA0-921C-0422331002E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52B0D671-5DBA-41DA-849B-55B56D769ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B0D671-5DBA-41DA-849B-55B56D769ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B0D671-5DBA-41DA-849B-55B56D769ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B0D671-5DBA-41DA-849B-55B56D769ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9393A663-7316-4A32-9389-6A5129E58D1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9393A663-7316-4A32-9389-6A5129E58D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9393A663-7316-4A32-9389-6A5129E58D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9393A663-7316-4A32-9389-6A5129E58D1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8989ED69-D4DD-4DA0-921C-0422331002E4}.Debug|Any CPU.ActiveCfg = Debug
+		{8989ED69-D4DD-4DA0-921C-0422331002E4}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE233666-42C2-4012-869B-8BE675D8C0D8}
+	EndGlobalSection
+EndGlobal

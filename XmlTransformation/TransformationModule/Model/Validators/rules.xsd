@@ -1,0 +1,111 @@
+﻿<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="rules" type="RulesType"/>
+	<xs:complexType name="RulesType">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="path" type="PathType"/>
+				<xs:element name="repeat" type="RepeatType"/>
+				<xs:element name="add" type="AddType"/>
+				<xs:element name="change" type="ChangeType"/>
+				<xs:element name="copy" type="CopyType"/>
+				<xs:element name="delete" type="DeleteType"/>
+				<xs:element name="move" type="MoveType"/>
+				<xs:element name="rename" type="RenameType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="defaultPrefix" type="NotEmptyString"/>
+	</xs:complexType>
+	<xs:complexType name="PathType">
+		<xs:attribute name="current" type="NotEmptyString" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="RepeatType">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="path" type="PathType"/>
+				<xs:element name="add" type="AddType"/>
+				<xs:element name="change" type="ChangeType"/>
+				<xs:element name="copy" type="CopyType"/>
+				<xs:element name="delete" type="DeleteType"/>
+				<xs:element name="move" type="MoveType"/>
+				<xs:element name="rename" type="RenameType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="times" type="NotEmptyString" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="AddType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="TypeEnum" default="element"/>
+				<xs:attribute name="name" type="NotEmptyString" use="required"/>
+				<xs:attribute name="in" type="NotEmptyString" use="required"/>
+				<xs:attribute name="where" type="NotEmptyString"/>
+				<xs:attribute name="before" type="NotEmptyString"/>
+				<xs:attribute name="after" type="NotEmptyString"/>
+				<xs:attribute name="if" type="NotEmptyString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ChangeType">
+		<xs:simpleContent>
+			<xs:extension base="NotEmptyString">
+				<xs:attribute name="type" type="TypeEnum" default="element"/>
+				<xs:attribute name="name" type="NotEmptyString" use="required"/>
+				<xs:attribute name="in" type="NotEmptyString" use="required"/>
+				<xs:attribute name="where" type="NotEmptyString"/>
+				<xs:attribute name="if" type="NotEmptyString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="CopyType">
+		<xs:attribute name="type" type="TypeEnum" default="element"/>
+		<xs:attribute name="name" type="NotEmptyString" use="required"/>
+		<xs:attribute name="from" type="NotEmptyString" use="required"/>
+		<xs:attribute name="fromWhere" type="NotEmptyString"/>
+		<xs:attribute name="to" type="NotEmptyString" use="required"/>
+		<xs:attribute name="toWhere" type="NotEmptyString"/>
+		<xs:attribute name="before" type="NotEmptyString"/>
+		<xs:attribute name="after" type="NotEmptyString"/>
+		<xs:attribute name="if" type="NotEmptyString"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteType">
+		<xs:attribute name="type" type="NotEmptyString" default="element"/>
+		<xs:attribute name="name" type="NotEmptyString" use="required"/>
+		<xs:attribute name="in" type="NotEmptyString" use="required"/>
+		<xs:attribute name="where" type="NotEmptyString"/>
+		<xs:attribute name="if" type="NotEmptyString"/>
+	</xs:complexType>
+	<xs:complexType name="MoveType">
+		<xs:attribute name="type" type="TypeEnum" default="element"/>
+		<xs:attribute name="name" type="NotEmptyString" use="required"/>
+		<xs:attribute name="from" type="NotEmptyString" use="required"/>
+		<xs:attribute name="fromWhere" type="NotEmptyString"/>
+		<xs:attribute name="to" type="NotEmptyString" use="required"/>
+		<xs:attribute name="toWhere" type="NotEmptyString"/>
+		<xs:attribute name="before" type="NotEmptyString"/>
+		<xs:attribute name="after" type="NotEmptyString"/>
+		<xs:attribute name="if" type="NotEmptyString"/>
+	</xs:complexType>
+	<xs:complexType name="RenameType">
+		<xs:simpleContent>
+			<xs:extension base="NotEmptyString">
+				<xs:attribute name="type" type="TypeEnum" default="element"/>
+				<xs:attribute name="name" type="NotEmptyString" use="required"/>
+				<xs:attribute name="in" type="NotEmptyString" use="required"/>
+				<xs:attribute name="where" type="NotEmptyString"/>
+				<xs:attribute name="if" type="NotEmptyString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="TypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="element"/>
+			<xs:enumeration value="attribute"/>
+			<xs:enumeration value="namespace"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NotEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
